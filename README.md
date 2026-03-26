@@ -155,7 +155,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 - Dockerfile 구성 요소 설명
 
-| 단계 | 명령어 | 설명 | 문제점 |
+| 단계 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 명령어 | 설명 | 문제점 |
 | --- | --- | --- | --- |
 | 1. 베이스 이미지 | `FROM eclipse-temurin:17-jdk` | 자바 17 실행 환경, 컴파일러, 디버깅 도구 등이 모두 포함된 전체 JDK 이미지를 기반으로 시작 | jdk에는 jar를 실행하기 위한 기능 뿐만 아니라, 불필요한 개발 도구도 포함되어 있어 용량을 많이 차지함 또한 스테이지를 구분하지 않고 `FROM`절 하나만으로 빌드하여 성능 문제 발생 가능 |
 | 2. 작업 디렉토리 | `WORKDIR /app` | 명령어들이 실행될 컨테이너 내부의 기본 폴더를 `/app`으로 지정  |  |
