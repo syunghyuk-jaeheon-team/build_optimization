@@ -52,7 +52,7 @@
         - 최적화 전략을 적용한 Dockerfile과 적용하지 않은 Dockerfile간 이미지 용량 비교
 
 
-## 4. 이미지 최적화 전략
+## 5. 이미지 최적화 전략
 
 ### 1) 도커 이미지 최적화가 중요한 이유
 
@@ -125,7 +125,7 @@
     CMD ["java", "Main"]
     ```
 
-## 5. 이미지 최적화 실습
+## 6. 이미지 최적화 실습
 
 ### 1) 최적화를 적용하지 않은 Dockerfile(Dockerfile.bad)
 
@@ -258,7 +258,7 @@ EXPOSE 80
 ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
 ```
 
-## 6. 측정 결과 비교
+## 7. 측정 결과 비교
 
 | 최적화 적용 방식 | 이미지 용량 | 빌드 실행 시간 |
 | --- | --- | --- |
@@ -267,7 +267,7 @@ ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
 | 멀티 스테이징, Layer 분해 | 216 MB | 1.5 s |
 | Alpine 베이스 이미지, 멀티 스테이징, Layer 분해 | 85.7 MB | 1.4 s |
 
-## 7. 최종 정리
+## 8. 최종 정리
 
 > **simpleweb:bad:** 최적화 되지 않은 이미지 \
 > **simpleweb:good:** 최적화된 이미지
@@ -276,5 +276,5 @@ ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
 
 
 멀티스테이징, Layer 분해, Base 이미지 선정 등의 최적화 방식을 사용하여 실험을 진행하였다. <br>
-실험 결과, 빌드 실행 시간에 큰 영향을 준 것은 멀티스테이징과 Layer 분해 방식이었고, <br>
-이미지 용량 최적화에 영향을 준 최적화 방식은 Base 이미지를 Alpine으로 설정한 것이었다.
+실험 결과, **빌드 실행 시간**에 가장 큰 영향을 준 것은 **멀티스테이징**과 **JAR Layer 분해** 방식이었고, <br>
+이미지 **용량 최적화**에 가장 큰 영향을 준 최적화 방식은 **Base 이미지를 Alpine**으로 설정한 것이었다.
